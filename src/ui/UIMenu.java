@@ -41,7 +41,7 @@ public class UIMenu {
                     System.out.println("*** Patient ***");
                     response = 0;
                     authUser(2);
-                    UIDoctor.showDoctorMenu();
+                    UIPatient.showPatientMenu();
 
                     //showPatientMenu();
                     break;

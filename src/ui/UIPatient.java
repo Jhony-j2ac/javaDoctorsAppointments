@@ -20,7 +20,7 @@ public class UIPatient {
             System.out.println("Welcome patient");
             System.out.println("1. Book an appointment");
             System.out.println("2. My appointments");
-            System.out.println("3. Logout");
+            System.out.println("0. Logout");
 
             Scanner sc = new Scanner(System.in);
             response = Integer.valueOf(sc.nextLine());
@@ -30,6 +30,7 @@ public class UIPatient {
                     showBookAppointmentMenu();
                     break;
                 case 2:
+                    showPatientMyAppointments();
                     break;
                 case 0:
                     UIMenu.showMenu();
@@ -53,7 +54,7 @@ public class UIPatient {
             int k = 0;
 
             //se iteran los doctores con fechas disponibles
-            for (int i = 0; i < UIDoctor.doctorsAvailableAppointment.size() -1; i++) {
+            for (int i = 0; i < UIDoctor.doctorsAvailableAppointment.size() ; i++) {
 
                 // Se obtiene uno a uno los doctores que colocaron su disponibilidad
                 final Doctor availableDoctor = UIDoctor.doctorsAvailableAppointment.get(i);
@@ -63,7 +64,7 @@ public class UIPatient {
                         availableDoctor.getAvailableAppointments();
                 Map<Integer, Doctor> doctorAppointments = new TreeMap<>();
 
-                for (int j = 0; j < availableAppointments.size() -1; j++) {
+                for (int j = 0; j < availableAppointments.size() ; j++) {
                     k++;
                     System.out.println(k + ". " + availableAppointments.get(j).getDate());
                     doctorAppointments.put(Integer.valueOf(j), availableDoctor);
@@ -121,7 +122,7 @@ public class UIPatient {
                     );
                 }
             }
-            
+
         }while (response != 0);
     }
 }
